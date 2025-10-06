@@ -1,0 +1,188 @@
+# app 的唯一 id,上架到商店需要保证不要冲突,尽量使用开发者自己的域名作为后缀.
+package: cloud.lazycat.app.liu.memgraph
+# app 的版本
+version: 3.5.2
+
+name: Memgraph
+keyword: memgraph,graph,database,图数据库
+description: Memgraph 图数据库
+
+# 软件名称,会显示在启动器之类的地方
+locales:
+  zh:
+    name: Memgraph 图数据库
+    description: |
+      ## Memgraph 图数据库
+
+      **官方网站：** https://memgraph.com/
+
+      **仓库地址：** https://github.com/lazycatapps/memgraph.git
+
+      Memgraph 是一个高性能的内存图数据库，专为实时数据分析和处理而设计。它完全兼容 Cypher 查询语言，并提供强大的图算法库 MAGE。
+
+      ## 什么是图数据库？
+
+      图数据库是一种专门用于存储和查询关系数据的数据库。与传统的关系型数据库不同，图数据库将数据存储为节点（entities）和边（relationships），非常适合处理高度互联的数据。
+
+      ## 典型应用场景
+
+      - **社交网络分析**：分析用户关系、好友推荐、社区发现
+      - **推荐系统**：基于用户行为和关系的个性化推荐
+      - **知识图谱**：构建和查询复杂的知识网络
+      - **欺诈检测**：识别异常交易模式和关联账户
+      - **网络与IT运维**：分析设备依赖关系、故障影响范围
+      - **供应链管理**：追踪产品来源和物流路径
+      - **生物信息学**：蛋白质交互网络、基因关系分析
+
+      本应用提供了完整的 Memgraph 数据库环境和 Memgraph Lab 可视化工具。
+
+      ## 主要功能
+
+      - 🚀 高性能内存图数据库
+      - 🔍 支持 Cypher 查询语言
+      - 📊 Memgraph Lab 可视化查询和分析工具
+      - 🧮 内置 MAGE 图算法库
+      - 🔌 支持 Bolt 协议连接
+      - ⚡ 实时数据流处理
+      - 🔒 支持 ACID 事务
+
+      ## 使用方法
+
+      1. 访问应用后，点击左侧 **"New connection"** 创建新连接
+      2. 填写连接信息：
+         - Host: `memgraph`
+         - Port: `7687`
+         - Username: `admin`
+         - Password: `admin`
+         - Encrypted: 取消勾选
+      3. 点击 **"Connect"** 按钮连接到数据库
+      4. 也可通过外部客户端使用 Bolt 协议（端口 7687）连接
+      5. 支持 Cypher 查询语言进行图数据查询和操作
+
+      ## 数据持久化
+
+      - 数据库文件存储在 `/lzcapp/var/lib` 目录
+      - 日志文件存储在 `/lzcapp/var/log` 目录
+      - 配置文件存储在 `/lzcapp/var/etc` 目录
+
+  en:
+    name: Memgraph
+    description: |
+      ## Memgraph Graph Database
+
+      **Official Website:** https://memgraph.com/
+
+      **Repository:** https://github.com/lazycatapps/memgraph.git
+
+      Memgraph is a high-performance in-memory graph database designed for real-time data analysis and processing. It is fully compatible with the Cypher query language and provides a powerful graph algorithm library MAGE.
+
+      ## What is a Graph Database?
+
+      A graph database is specifically designed to store and query relationship-rich data. Unlike traditional relational databases, graph databases store data as nodes (entities) and edges (relationships), making them ideal for highly interconnected data.
+
+      ## Typical Use Cases
+
+      - **Social Network Analysis**: Analyze user relationships, friend recommendations, community detection
+      - **Recommendation Systems**: Personalized recommendations based on user behavior and relationships
+      - **Knowledge Graphs**: Build and query complex knowledge networks
+      - **Fraud Detection**: Identify suspicious transaction patterns and linked accounts
+      - **Network & IT Operations**: Analyze device dependencies, fault impact analysis
+      - **Supply Chain Management**: Track product origins and logistics paths
+      - **Bioinformatics**: Protein interaction networks, gene relationship analysis
+
+      This application provides a complete Memgraph database environment and Memgraph Lab visualization tool.
+
+      ## Main Features
+
+      - 🚀 High-performance in-memory graph database
+      - 🔍 Support for Cypher query language
+      - 📊 Memgraph Lab visualization query and analysis tool
+      - 🧮 Built-in MAGE graph algorithm library
+      - 🔌 Support for Bolt protocol connection
+      - ⚡ Real-time data stream processing
+      - 🔒 Support for ACID transactions
+
+      ## Usage Instructions
+
+      1. After accessing the application, click **"New connection"** on the left sidebar
+      2. Fill in the connection details:
+         - Host: `memgraph`
+         - Port: `7687`
+         - Username: `admin`
+         - Password: `admin`
+         - Encrypted: Uncheck
+      3. Click **"Connect"** button to connect to the database
+      4. You can also connect via external clients using Bolt protocol (port 7687)
+      5. Supports Cypher query language for graph data queries and operations
+
+      ## Data Persistence
+
+      - Database files are stored in the `/lzcapp/var/lib` directory
+      - Log files are stored in the `/lzcapp/var/log` directory
+      - Configuration files are stored in the `/lzcapp/var/etc` directory
+
+# 软件本身的 license
+license: https://github.com/memgraph/memgraph/blob/master/licenses/BSL.txt
+
+# 软件的主页,会在商店等地方体现
+homepage: https://github.com/memgraph/memgraph
+
+# lpk 的作者,会在商店等地方体现
+author: liu
+
+# application 作为一个特殊的 container 运行，对应的 service 名称为固定的`app`， 其他 service 可以通过此名称与 app 进行通讯
+application:
+  #是否存在后台任务， 若存在则系统不会对此 app 进行主动休眠等操作
+  background_task: true
+
+  # 期望的 app 域名，如果系统中已经有对应域名则会提示用户选择其他域名。 最终 app 分配到的域名以/lzcapp/run/app.subdomain 为准
+  subdomain: memgraph
+
+  routes:
+    - /=http://lab:3000
+
+  depends_on:
+    - memgraph
+
+  ingress:
+    - protocol: tcp
+      port: 7687
+      service: memgraph
+      description: Memgraph Bolt 协议
+    - protocol: tcp
+      port: 7444
+      service: memgraph
+      description: Memgraph WebSocket 协议
+
+  # 是否启用多实例
+  multi_instance: false
+
+  # 健康检测配置
+  health_check:
+    test_url: http://lab:3000
+    start_period: 120s
+
+services:
+  memgraph:
+    # lzc-cli appstore copy-image memgraph/memgraph-mage:3.5.2
+    image: registry.lazycat.cloud/liu/memgraph/memgraph-mage:f6434f1c79ac28a3
+    user: root
+    command: "--also-log-to-stderr --log-level=TRACE --log-file=/var/log/memgraph/memgraph.log --data-directory=/var/lib/memgraph --data-recovery-on-startup=true --storage-snapshot-interval-sec=300 --storage-wal-enabled=true --storage-properties-on-edges=true"
+    environment:
+      - MEMGRAPH_USER=admin
+      - MEMGRAPH_PASSWORD=admin
+    binds:
+      - /lzcapp/var/lib:/var/lib/memgraph
+      - /lzcapp/var/log:/var/log/memgraph
+      # 使用默认配置
+      # - /lzcapp/var/etc:/etc/memgraph
+
+  lab:
+    # lzc-cli appstore copy-image memgraph/lab:3.5.0
+    image: registry.lazycat.cloud/liu/memgraph/lab:d9774c7968ed5164
+    environment:
+      - QUICK_CONNECT_MG_HOST=memgraph
+      - QUICK_CONNECT_MG_PORT=7687
+      - QUICK_CONNECT_MG_IS_ENCRYPTED=false
+    depends_on:
+      - memgraph
