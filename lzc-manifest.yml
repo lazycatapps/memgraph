@@ -59,12 +59,6 @@ locales:
       4. 也可通过外部客户端使用 Bolt 协议（端口 7687）连接
       5. 支持 Cypher 查询语言进行图数据查询和操作
 
-      ## 数据持久化
-
-      - 数据库文件存储在 `/lzcapp/var/lib` 目录
-      - 日志文件存储在 `/lzcapp/var/log` 目录
-      - 配置文件存储在 `/lzcapp/var/etc` 目录
-
   en:
     name: Memgraph
     description: |
@@ -114,12 +108,6 @@ locales:
       3. Click **"Connect"** button to connect to the database
       4. You can also connect via external clients using Bolt protocol (port 7687)
       5. Supports Cypher query language for graph data queries and operations
-
-      ## Data Persistence
-
-      - Database files are stored in the `/lzcapp/var/lib` directory
-      - Log files are stored in the `/lzcapp/var/log` directory
-      - Configuration files are stored in the `/lzcapp/var/etc` directory
 
 # 软件本身的 license
 license: https://github.com/memgraph/memgraph/blob/master/licenses/BSL.txt
